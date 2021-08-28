@@ -5,7 +5,7 @@ const searchFood = ()=>{
     if(searchText == ''){
         const searchResult = document.getElementById('search-result');
         searchResult.innerHTML = `
-        <h1 class="text-center mt-5 text-danger">404 Meal not found !</h1>
+        <h1 class="text-center mt-5 text-danger">404 Search result not found !</h1>
         `
     }
     else{
@@ -23,7 +23,7 @@ const displaySearchResult=(meals,searchText)=>{
     searchResult.textContent = '';
     if(meals == null){
         searchResult.innerHTML = `
-        <h1 class="text-center mt-5 text-danger">${searchText} Not Found</h1>
+        <h1 class="text-center mt-5 text-danger">${searchText} is Not Found</h1>
         `
     }
     else{
@@ -36,7 +36,7 @@ const displaySearchResult=(meals,searchText)=>{
                 <div class="card-body">
                     <h5 class="card-title">${meal.strMeal}</h5>
                     <p class="card-text">${meal.strInstructions.slice(0,80)}</p>
-                    <button class="btn btn-outline-success" onclick="(loadMealDetails(${meal.idMeal}))">View Details</button>
+                    <button class="btn btn-outline-danger" onclick="(loadMealDetails(${meal.idMeal}))">View Details</button>
                 </div>
              </div>
             `;   
