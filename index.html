@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meal Db best food</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="spinner.css">
 </head>
 <body>
     <!-- meal search area -->
@@ -21,6 +22,9 @@
     <!-- meal search result -->
     <section>
         <div class="container">
+            <div id="loading-spinner" class="text-center" style="display:none">
+                <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            </div>
             <div id="search-result" class="row gy-5">
                 
               </div>

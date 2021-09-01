@@ -1,3 +1,6 @@
+const toggleSpinner =(display) =>{
+    document.getElementById('loading-spinner').style.display = `${display}`
+};
 const searchFood = ()=>{
     const searchField  = document.getElementById('search-field');
     const searchText = searchField.value;
@@ -6,19 +9,23 @@ const searchFood = ()=>{
         const searchResult = document.getElementById('search-result');
         searchResult.innerHTML = `
         <h1 class="text-center mt-5 text-danger">404 Search result not found !</h1>
-        `
+         `
     }
     else{
         const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
         fetch(url)
         .then(res => res.json())
         .then(data => displaySearchResult(data.meals,searchText));
+        // loadingStyle('none');
+        toggleSpinner('flex');
     }
 
     searchField.value = '';
 }
 
 const displaySearchResult=(meals,searchText)=>{
+    toggleSpinner('none');
+    // loadingStyle('block');
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
     if(meals == null){
@@ -46,6 +53,8 @@ const displaySearchResult=(meals,searchText)=>{
 }
 
 const loadMealDetails=(id)=>{
+    // loadingStyle('none');
+    toggleSpinner('flex');
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
     fetch(url)
     .then(res => res.json())
@@ -66,5 +75,7 @@ const displayMealDetails = (meal) =>{
             </div>
          </div>
     </div>
-    `   
+    ` ;
+    // loadingStyle('block');
+    toggleSpinner('none');
 }
